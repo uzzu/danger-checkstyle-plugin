@@ -443,3 +443,5 @@ DerivedData/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/vim,node,xcode,emacs,linux,macos,windows,intellij+iml,androidstudio
+
+danger_out.json
