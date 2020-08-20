@@ -1,4 +1,3 @@
-@file:Repository("file:///Users/hirokazu-uzu/.m2/repository")
 @file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.0.1")
 
 import co.uzzu.danger.plugins.checkstyle.CheckStyle
