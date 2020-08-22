@@ -95,8 +95,8 @@ You can choose reporting method `MESSAGE`, `WARN`, and `FAIL` .
 import co.uzzu.danger.plugins.checkstyle.Inline
 import co.uzzu.danger.plugins.checkstyle.ReportMethod.*
 
-CheckStyle.report = Inline // reporterMethod = ERROR is used by default.
-CheckStyle.report = Inline { reportMethod = WARN }
+CheckStyle.reporter = Inline // reporterMethod = ERROR is used by default.
+CheckStyle.reporter = Inline { reportMethod = WARN }
 ```
 
 #### Markdown
@@ -106,8 +106,8 @@ Report as message with the Markdown format.
 ```kotlin
 import co.uzzu.danger.plugins.checkstyle.Markdown
 
-CheckStyle.report = Markdown // label = "Checkstyle" is used by default.
-CheckStyle.report = Markdown { label =  "My checkstyle" }
+CheckStyle.reporter = Markdown // label = "Checkstyle" is used by default.
+CheckStyle.reporter = Markdown { label =  "My checkstyle" }
 ```
 
 ### severities
