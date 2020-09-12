@@ -2,7 +2,7 @@ import org.gradle.api.Project
 
 private const val majorVersion: Int = 0
 private const val minorVersion: Int = 0
-private val patchVersion: Int = 1
+private val patchVersion: Int = 3
 
 val Project.publishingGroupId: String
     get() = "co.uzzu.danger.plugins"
@@ -25,11 +25,6 @@ object MavenPublications {
     const val organizationUrl = "https://uzzu.co"
     const val scmUrl = "https://github.com/uzzu/danger-checkstyle-plugin"
 }
-
-val Project.bintrayUser: String?
-    get() = findProperty("bintrayUser") as String?
-val Project.bintrayApiKey: String?
-    get() = findProperty("bintrayApiKey") as String?
 
 object Bintray {
     const val mavenUrl = "https://dl.bintray.com/uzzu/maven"

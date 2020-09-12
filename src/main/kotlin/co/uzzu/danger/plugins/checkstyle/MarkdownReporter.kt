@@ -1,5 +1,6 @@
 package co.uzzu.danger.plugins.checkstyle
 
+import kotlin.text.StringBuilder
 import systems.danger.kotlin.sdk.DangerContext
 
 object Markdown : ReporterFactory {
@@ -78,11 +79,11 @@ private class MarkdownReporter(
 
     private fun tableContent(issues: List<CheckStyleIssue>): String = StringBuilder()
         .apply {
-            appendLine("| File | Message |")
-            appendLine("| --- | --- |")
+            appendln("| File | Message |")
+            appendln("| --- | --- |")
             issues
                 .map { "| ${it.filename}#L${it.line}${it.column?.let { c -> ":$c" } ?: ""} | ${it.message} (${it.source}) |" }
-                .forEach { appendLine(it) }
+                .forEach { appendln(it) }
         }
         .toString()
 }

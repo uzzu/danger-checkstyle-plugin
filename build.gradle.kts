@@ -2,7 +2,8 @@ import com.jfrog.bintray.gradle.BintrayExtension
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 plugins {
-    kotlin("jvm") version "1.4.0"
+    id("co.uzzu.dotenv.gradle") version "1.1.0"
+    kotlin("jvm") version "1.3.70"
     id("org.jlleitschuh.gradle.ktlint") version "9.3.0"
     `java-library`
     `maven-publish`
@@ -10,12 +11,11 @@ plugins {
 }
 
 repositories {
-    mavenLocal()
     jcenter()
 }
 
 dependencies {
-    implementation("systems.danger:danger-kotlin-sdk:1.2")
+    implementation("systems.danger:danger-kotlin-sdk:1.1")
     api("org.dom4j:dom4j:2.1.3") { isTransitive = true }
     api("jaxen:jaxen:1.1.6") { isTransitive = true }
 
@@ -60,7 +60,11 @@ publishing {
     repositories {
         maven {
             name = "bintray"
-            url = uri("https://api.bintray.com/content/$bintrayUser/${Bintray.repo}/${Bintray.packageName}/$publishingArtifactVersion;override=1;publish=0") // ktlint-disable max-line-length
+            url = uri("https://api.bintray.com/content/${env.BINTRAY_USER.value}/${Bintray.repo}/${Bintray.packageName}/$publishingArtifactVersion;override=1;publish=0") // ktlint-disable max-line-length
+            credentials {
+                username = env.BINTRAY_USER.value
+                password = env.BINTRAY_API_KEY.value
+            }
         }
     }
 
@@ -100,8 +104,8 @@ publishing {
 }
 
 bintray {
-    user = bintrayUser
-    key = bintrayApiKey
+    user = env.BINTRAY_USER.value
+    key = env.BINTRAY_API_KEY.value
     publish = false
     setPublications(
         *publishing.publications
