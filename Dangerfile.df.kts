@@ -1,4 +1,5 @@
-@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.0.1")
+@file:Repository("https://dl.bintray.com/uzzu/maven")
+@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.0.3")
 
 import co.uzzu.danger.plugins.checkstyle.CheckStyle
 import co.uzzu.danger.plugins.checkstyle.Markdown
