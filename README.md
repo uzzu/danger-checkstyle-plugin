@@ -1,3 +1,5 @@
+[![Coding Style][ktlint-img]][ktlint] [![Released Version][maven-img]][maven]
+
 # danger-checkstyle-plugin
 ![](https://github.com/uzzu/danger-checkstyle-plugin/workflows/master/badge.svg) [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/) [![Download](https://api.bintray.com/packages/uzzu/maven/danger-checkstyle-plugin/images/download.svg)](https://bintray.com/uzzu/maven/danger-checkstyle-plugin/_latestVersion)
 
@@ -133,3 +135,8 @@ CheckStyle.basePath = "path/to/your/base/directory"
 ## License
 
 [Apache 2.0 License](LICENSE.txt)
+
+[ktlint-img]: https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg
+[ktlint]: https://ktlint.github.io/
+[maven-img]: https://img.shields.io/maven-central/v/co.uzzu.danger.plugins/checkstyle.svg?maxAge=2000
+[maven]: https://search.maven.org/search?q=g:co.uzzu.danger.plugins
