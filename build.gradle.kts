@@ -123,7 +123,7 @@ signing {
         useInMemoryPgpKeys(
             env.SIGNING_KEYID.orElse(""),
             env.SIGNING_KEY.orElse(""),
-            env.SIGNING_PASSOWORD.orElse("")
+            env.SIGNING_PASSWORD.orElse("")
         )
     }
 }
