@@ -18,6 +18,11 @@ jobs:
       - name: Gradle build
         run: |
           ./gradlew build
+      - name: Upload build report
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: build_reports
+          path: plugin/build/reports
       - name: Run Danger
         uses: danger/kotlin@0.7.1
         env:
