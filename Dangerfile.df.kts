@@ -11,7 +11,7 @@ register plugin CheckStyle
 val d = Danger(args)
 
 println(System.getProperty("user.dir"))
-"**/build/reports/ktlint/ktlint*Check.xml".glob()
+"**/build/reports/ktlint/ktlint*Check.xml".glob(".")
     .map { it.toFile() }
     .filter { !it.isDirectory }
     .forEach {
