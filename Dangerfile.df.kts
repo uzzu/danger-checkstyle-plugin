@@ -5,6 +5,8 @@ import co.uzzu.strikts.*
 import co.uzzu.danger.plugins.checkstyle.*
 import systems.danger.kotlin.Danger
 import systems.danger.kotlin.register
+import java.nio.file.Path
+import java.nio.file.Paths
 
 register plugin CheckStyle
 
