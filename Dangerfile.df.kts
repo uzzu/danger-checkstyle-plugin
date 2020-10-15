@@ -20,6 +20,7 @@ println(System.getProperty("user.dir"))
 val env = DotEnv()
 val GITHUB_WORKSPACE by env.orElse("not set")
 println("workspace: $GITHUB_WORKSPACE")
+println("hoge: ${System.getProperty("user.home")}")
 
 CheckStyle.severities = listOf(Severity.IGNORE, Severity.INFO, Severity.WARNING, Severity.ERROR)
 CheckStyle.reporter = Inline
