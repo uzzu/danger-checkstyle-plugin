@@ -7,7 +7,7 @@ import systems.danger.kotlin.register
 register plugin CheckStyle
 
 val d = Danger(args)
-val isGitHubActionsBuild = System.getenv("GITHUB_WORKSPACE")?.map { true } ?: false
+val isGitHubActionsBuild = System.getenv("GITHUB_WORKSPACE")?.run { true } ?: false
 
 if (isGitHubActionsBuild) {
     CheckStyle.basePath = "/home/runner/work/danger-checkstyle-plugin/danger-checkstyle-plugin"
