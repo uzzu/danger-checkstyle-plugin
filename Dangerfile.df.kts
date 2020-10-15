@@ -36,9 +36,10 @@ fun ensureConvertingFilename(parent: String, basePath: String): String =
     }
 
 fun findGitDirectory(path: Path): String {
-    check(path.toString() == "/")
+    check(path.toString() != "/")
     val file = path.toFile()
-    file.isRooted
+    
+    println(path.toString())
     if (!file.isDirectory) {
         return findGitDirectory(path.parent)
     }
