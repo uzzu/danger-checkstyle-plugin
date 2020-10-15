@@ -29,7 +29,7 @@ fun ensureConvertingFilename(parent: String, basePath: String): String =
         parent.replace(Regex("^$basePath/"), "")
     } else {
         try {
-            findGitDirectory(Paths.get(parent))
+            findDangerfileDirectory(Paths.get(parent))
         } catch (e: IllegalStateException) {
             throw IllegalStateException("Could not find report target file. $parent")
         }
@@ -41,13 +41,13 @@ fun findDangerfileDirectory(path: Path): String {
     
     println(path.toString())
     if (!file.isDirectory) {
-        return findGitDirectory(path.parent)
+        return findDangerfileDirectory(path.parent)
     }
     val dangerFilePath = Paths.get(path.toString(), "Dangerfile.df.kts")
     println(dangerFilePath.toString())
     val dangerFile = dangerFilePath.toFile()
     if (!dangerFile.exists()) {
-        return findGitDirectory(path.parent)
+        return findDangerfileDirectory(path.parent)
     }
     return path.toString()
 }
