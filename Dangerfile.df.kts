@@ -35,7 +35,7 @@ fun ensureConvertingFilename(parent: String, basePath: String): String =
         }
     }
 
-fun findGitDirectory(path: Path): String {
+fun findDangerfileDirectory(path: Path): String {
     check(path.toString() != "/")
     val file = path.toFile()
     
@@ -43,10 +43,10 @@ fun findGitDirectory(path: Path): String {
     if (!file.isDirectory) {
         return findGitDirectory(path.parent)
     }
-    val gitFilePath = Paths.get(path.toString(), ".git")
-    println(gitFilePath.toString())
-    val gitDirectory = gitFilePath.toFile()
-    if (!gitDirectory.exists() || !gitDirectory.isDirectory) {
+    val dangerFilePath = Paths.get(path.toString(), "Dangerfile.df.kts")
+    println(dangerFilePath.toString())
+    val dangerFile = dangerFilePath.toFile()
+    if (!dangerFile.exists()) {
         return findGitDirectory(path.parent)
     }
     return path.toString()
