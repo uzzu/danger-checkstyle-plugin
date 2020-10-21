@@ -1,5 +1,7 @@
 @file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.1.0")
+@file:DependsOn("co.uzzu.strikts:strikts:0.2.0")
 
+import co.uzzu.strikts.*
 import co.uzzu.danger.plugins.checkstyle.*
 import systems.danger.kotlin.Danger
 import systems.danger.kotlin.register
