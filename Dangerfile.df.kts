@@ -18,8 +18,8 @@ if (isGitHubActionsBuild) {
         .forEach {
             println(it.absolutePath)
         }
-    println("runner workspace: ${System.getenv()['RUNNER_WORKSPACE']}")
-    println("github workspace: ${System.getenv()['GITHUB_WORKSPACE']}")
+    println("runner workspace: ${System.getenv()["RUNNER_WORKSPACE"]}")
+    println("github workspace: ${System.getenv()["GITHUB_WORKSPACE"]}")
 }
 
 CheckStyle.severities = listOf(Severity.IGNORE, Severity.INFO, Severity.WARNING, Severity.ERROR)
