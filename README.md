@@ -9,7 +9,7 @@ A [Danger Kotlin](https://github.com/danger/kotlin) plugin for reporting [checks
 - [Install Danger Kotlin](https://github.com/danger/kotlin#setup)
 - Add the following dependency in your `Dangerfile.df.kts` :
   ```kotlin
-  @file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.1.0")
+  @file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.2.0")
   ```
 - Register plugin and then write script to report your checkstyle result. 
   ```kotlin
@@ -27,7 +27,7 @@ A [Danger Kotlin](https://github.com/danger/kotlin) plugin for reporting [checks
 ### Simple use
 
 ```kotlin
-@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.1.0")
+@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.2.0")
 
 import co.uzzu.danger.plugins.checkstyle.CheckStyle
 import systems.danger.kotlin.Danger
@@ -43,7 +43,7 @@ CheckStyle.report("path/to/checkstyle_result.xml")
 ### Use with glob matcher
 
 ```kotlin
-@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.1.0")
+@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.2.0")
 
 import co.uzzu.danger.plugins.checkstyle.CheckStyle
 import systems.danger.kotlin.Danger
@@ -59,7 +59,7 @@ CheckStyle.report("glob:**/path/to/*check_result.xml")
 ### Use with configuration block
 
 ```kotlin
-@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.1.0")
+@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.2.0")
 
 import co.uzzu.danger.plugins.checkstyle.CheckStyle
 import systems.danger.kotlin.Danger

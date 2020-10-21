@@ -38,14 +38,14 @@ private class InlineReporter(
     }
 
     private fun message(issue: CheckStyleIssue) {
-        context.message(message = issue.message, file = issue.filename, line = issue.line)
+        context.message(message = "${issue.message} (${issue.source})", file = issue.filename, line = issue.line)
     }
 
     private fun warn(issue: CheckStyleIssue) {
-        context.warn(message = issue.message, file = issue.filename, line = issue.line)
+        context.warn(message = "${issue.message} (${issue.source})", file = issue.filename, line = issue.line)
     }
 
     private fun fail(issue: CheckStyleIssue) {
-        context.fail(message = issue.message, file = issue.filename, line = issue.line)
+        context.fail(message = "${issue.message} (${issue.source})", file = issue.filename, line = issue.line)
     }
 }
