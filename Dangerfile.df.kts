@@ -10,7 +10,12 @@ val d = Danger(args)
 val isGitHubActionsBuild = System.getenv("GITHUB_WORKSPACE")?.run { true } ?: false
 
 if (isGitHubActionsBuild) {
-    CheckStyle.basePath = "/home/runner/work/danger-checkstyle-plugin/danger-checkstyle-plugin"
+    "**/build/reports/ktlint/ktlint*Check.xml".glob(".")
+        .map { it.toFile() }
+        .filter { !it.isDirectory }
+        .forEach {
+            println(it.absolutePath)
+        }
 }
 
 CheckStyle.severities = listOf(Severity.IGNORE, Severity.INFO, Severity.WARNING, Severity.ERROR)
