@@ -86,13 +86,27 @@ object CheckStyle : DangerPlugin() {
 
     private fun run(config: Config) {
         val collector =   FileCollector(config.basePath)
-        val parser = Parser(config.basePath, config.severities)
+        val parser = Parser(ciRootPathOrBasePath(basePath), config.severities)
         val reporter = config.reporter.create(context, config.severities)
         val issues = collector.collect(config.path)
             .throwIfNotExists()
             .map { it.readText() }
             .flatMap(parser::parse)
         reporter.report(issues)
+    }
+
+    private fun ciRootPathOrBasePath(basePath: String): String {
+        val githubRepository = System.getenv("GITHUB_REPOSITORY")
+        val runnerWorkspace = System.getenv("RUNNER_WORKSPACE")
+
+        // for danger/kotlin GitHub Actions
+        if (!githubRepository.isNullOrBlank() && !runnerWorkspace.isNullOrBlank()) {
+            val repositoryName = githubRepository.split("/").last()
+            return "$runnerWorkspace/$repositoryName"
+        }
+
+        // for local
+        return basePath
     }
 
     private fun Sequence<File>.throwIfNotExists(): Sequence<File> =

@@ -1,7 +1,6 @@
 [![Coding Style][ktlint-img]][ktlint] [![Released Version][maven-img]][maven]
 
 # danger-checkstyle-plugin
-![](https://github.com/uzzu/danger-checkstyle-plugin/workflows/master/badge.svg) [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/) [![Download](https://api.bintray.com/packages/uzzu/maven/danger-checkstyle-plugin/images/download.svg)](https://bintray.com/uzzu/maven/danger-checkstyle-plugin/_latestVersion)
 
 A [Danger Kotlin](https://github.com/danger/kotlin) plugin for reporting [checkstyle](https://checkstyle.org/) result.
 
@@ -10,7 +9,7 @@ A [Danger Kotlin](https://github.com/danger/kotlin) plugin for reporting [checks
 - [Install Danger Kotlin](https://github.com/danger/kotlin#setup)
 - Add the following dependency in your `Dangerfile.df.kts` :
   ```kotlin
-  @file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.1.0")
+  @file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.2.0")
   ```
 - Register plugin and then write script to report your checkstyle result. 
   ```kotlin
@@ -28,7 +27,7 @@ A [Danger Kotlin](https://github.com/danger/kotlin) plugin for reporting [checks
 ### Simple use
 
 ```kotlin
-@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.1.0")
+@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.2.0")
 
 import co.uzzu.danger.plugins.checkstyle.CheckStyle
 import systems.danger.kotlin.Danger
@@ -44,7 +43,7 @@ CheckStyle.report("path/to/checkstyle_result.xml")
 ### Use with glob matcher
 
 ```kotlin
-@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.1.0")
+@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.2.0")
 
 import co.uzzu.danger.plugins.checkstyle.CheckStyle
 import systems.danger.kotlin.Danger
@@ -60,7 +59,7 @@ CheckStyle.report("glob:**/path/to/*check_result.xml")
 ### Use with configuration block
 
 ```kotlin
-@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.1.0")
+@file:DependsOn("co.uzzu.danger.plugins:checkstyle:0.2.0")
 
 import co.uzzu.danger.plugins.checkstyle.CheckStyle
 import systems.danger.kotlin.Danger

@@ -3,7 +3,10 @@ package co.uzzu.danger.plugins.checkstyle
 import org.dom4j.DocumentHelper
 import org.dom4j.Element
 
-internal class Parser(private val basePath: String, private val severities: List<Severity>) {
+internal class Parser(
+    private val fileRootPath: String,
+    private val severities: List<Severity>,
+) {
 
     fun parse(text: String): Sequence<CheckStyleIssue> {
         val document = DocumentHelper.parseText(text)
@@ -13,13 +16,13 @@ internal class Parser(private val basePath: String, private val severities: List
                 parent.selectNodes("*").asSequence()
                     .map { child -> child as Element }
                     .filter { severities.contains(it.severity()) }
-                    .map { child -> createIssue(parent as Element, child, basePath) }
+                    .map { child -> createIssue(parent as Element, child, fileRootPath) }
             }
     }
 
-    private fun createIssue(parent: Element, child: Element, basePath: String): CheckStyleIssue =
+    private fun createIssue(parent: Element, child: Element, fileRootPath: String): CheckStyleIssue =
         CheckStyleIssue(
-            filename = parent.name().replace(Regex("^$basePath/"), ""),
+            filename = parent.name().replace(Regex("^$fileRootPath/"), ""),
             line = child.line(),
             column = child.column(),
             severity = child.severity(),

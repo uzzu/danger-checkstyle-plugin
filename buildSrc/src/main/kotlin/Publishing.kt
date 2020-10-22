@@ -1,7 +1,7 @@
 import org.gradle.api.Project
 
 private const val majorVersion: Int = 0
-private const val minorVersion: Int = 1
+private const val minorVersion: Int = 2
 private const val patchVersion: Int = 0
 
 val Project.publishingGroupId: String
